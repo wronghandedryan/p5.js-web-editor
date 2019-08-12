@@ -112,6 +112,19 @@ class Sidebar extends React.Component {
                   Add file
                 </button>
               </li>
+              <li>
+                <button
+                  aria-label="upload file"
+                  onClick={() => {
+                    this.props.openUploadFileModal();
+                    setTimeout(this.props.closeProjectOptions, 0);
+                  }}
+                  onBlur={this.onBlurComponent}
+                  onFocus={this.onFocusComponent}
+                >
+                  Add file
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -136,6 +149,7 @@ Sidebar.propTypes = {
   openProjectOptions: PropTypes.func.isRequired,
   closeProjectOptions: PropTypes.func.isRequired,
   newFolder: PropTypes.func.isRequired,
+  openUploadFileModal: PropTypes.func.isRequired,
   owner: PropTypes.shape({
     id: PropTypes.string
   }),
