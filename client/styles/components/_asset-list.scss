@@ -10,8 +10,10 @@
   padding-bottom: #{10 / $base-font-size}rem;
   max-height: 100%;
   border-spacing: 0;
-  & .asset-list__delete-column {
-    width: #{23 / $base-font-size}rem;
+  position: relative;
+  & .asset-table__dropdown-column {
+    width: #{60 / $base-font-size}rem;
+    position: relative;
   }
 
   & thead {
@@ -69,4 +71,21 @@
   @include themify() {
     background-color: getThemifyVariable('background-color');
   }
+}
+
+.asset-table__dropdown-button {
+  width:#{25 / $base-font-size}rem;
+  height:#{25 / $base-font-size}rem;
+
+  @include themify() {
+    & polygon {
+      fill: getThemifyVariable('dropdown-color');
+    }
+  }
+}
+
+.asset-table__action-dialogue {
+  @extend %dropdown-open-right;
+  top: 63%;
+  right: calc(100% - 26px);
 }
