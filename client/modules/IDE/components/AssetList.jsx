@@ -28,7 +28,7 @@ class AssetListRowBase extends React.Component {
     this.setState({ isFocused: false });
     setTimeout(() => {
       if (!this.state.isFocused) {
-        this.closeAll();
+        this.closeOptions();
       }
     }, 200);
   }
@@ -105,6 +105,7 @@ class AssetListRowBase extends React.Component {
                   target="_blank"
                   onBlur={this.onBlurComponent}
                   onFocus={this.onFocusComponent}
+                  className="asset-table__action-option"
                 >
                   Open in New Tab
                 </Link>
