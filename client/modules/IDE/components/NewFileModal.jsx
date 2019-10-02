@@ -8,6 +8,7 @@ import NewFileForm from './NewFileForm';
 import { getCanUploadMedia, getreachedTotalSizeLimit } from '../selectors/users';
 import { closeNewFileModal } from '../actions/ide';
 import { createFile } from '../actions/files';
+import { CREATE_FILE_REGEX } from '../../../../server/utils/fileUtils';
 
 const exitUrl = require('../../../images/exit.svg');
 
@@ -59,8 +60,8 @@ function validate(formProps) {
 
   if (!formProps.name) {
     errors.name = 'Please enter a name';
-  } else if (!formProps.name.match(/(.+\.js$|.+\.css$|.+\.json$|.+\.txt$|.+\.csv$|.+\.tsv$)/i)) {
-    errors.name = 'File must be of type JavaScript, CSS, JSON, TXT, CSV, or TSV.';
+  } else if (!formProps.name.match(CREATE_FILE_REGEX)) {
+    errors.name = 'Invalid file type. Valid extensions are .js, .css, .json, .txt, .csv, .tsv, .frag, and .vert.';
   }
 
   return errors;
